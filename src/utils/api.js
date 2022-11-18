@@ -1,3 +1,5 @@
+import {jwt, serverUrl} from "./constants";
+
 class Api {
   constructor({ serverUrl, headers }) {
     this._serverUrl = serverUrl;
@@ -82,9 +84,9 @@ class Api {
 }
 
 const api = new Api({
-  serverUrl: 'https://mesto.nomoreparties.co/v1/cohort-46',
+  serverUrl: serverUrl,
   headers: {
-    authorization: 'cc57414f-37f0-4296-8799-a8484f2a34e6',
+    authorization: jwt,
     'Content-Type': 'application/json'
   }
 });

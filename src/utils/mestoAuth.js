@@ -1,7 +1,7 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+import {jwt, serverUrl} from "./constants";
 
 export const register = (password, email) => {
-  return fetch(`${BASE_URL}/signup`, {
+  return fetch(`${serverUrl}/signup`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
@@ -20,7 +20,7 @@ export const register = (password, email) => {
 }
 
 export const login = (password, email) => {
-  return fetch(`${BASE_URL}/signin`, {
+  return fetch(`${serverUrl}/signin`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
@@ -38,12 +38,12 @@ export const login = (password, email) => {
   })
 }
 
-export const check = (token) => {
-  return fetch(`${BASE_URL}/users/me`, {
+export const check = () => {
+  return fetch(`${serverUrl}/users/me`, {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
-      "Authorization" : `Bearer ${token}`
+      "Authorization" : jwt
     }
   })
   .then((res) => {
